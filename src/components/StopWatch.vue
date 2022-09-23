@@ -5,29 +5,30 @@
 </template>
 
 <script>
-import moment from "moment";
+import moment from 'moment';
 
 export default {
-  name: "stopwatch",
+  name: 'stopwatch',
   props: {
     running: {
       type: Boolean,
-      default: false
+      default: false,
     },
     resetWhenStart: {
       type: Boolean,
-      default: false
+      default: false,
     },
     restWhenStop: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
   watch: {
-    running: function(newVal, oldVal) {
+    // eslint-disable-next-line no-unused-vars
+    running(newVal, oldVal) {
       if (newVal) this.startT();
       else this.stopT();
-    }
+    },
   },
   mounted() {
     if (this.running) this.startT();
@@ -36,34 +37,35 @@ export default {
     return { time: 0, timer: null };
   },
   methods: {
-    stopT: function() {
+    stopT() {
       clearInterval(this.timer);
       if (this.restWhenStop) this.resetT();
     },
-    startT: function() {
+    startT() {
       if (this.resetWhenStart) this.resetT();
       this.timer = setInterval(() => {
+        // eslint-disable-next-line no-plusplus
         this.time++;
       }, 1000);
     },
-    resetT: function() {
+    resetT() {
       this.time = 0;
-    }
+    },
   },
   filters: {
-    secondsInMinutes: function(seconds) {
-      return moment("2015-01-01")
-        .startOf("day")
+    secondsInMinutes(seconds) {
+      return moment('2015-01-01')
+        .startOf('day')
         .seconds(seconds)
-        .format("HH:mm:ss");
-    }
-  }
+        .format('HH:mm:ss');
+    },
+  },
 };
 </script>
 
 <style scoped>
 p {
   font-weight: bold;
-  font-size: x-large;
+  font-size: 40px;
 }
 </style>

@@ -1,13 +1,20 @@
-// The Vue build version to load with the `import` command
-// (runtime-only or standalone) has been set in webpack.base.conf with an alias.
-import Vue from "vue";
-import App from "./App";
+import Vue from 'vue';
+// eslint-disable-next-line import/extensions
+import App from './App.vue';
+// eslint-disable-next-line import/first, import/no-unresolved
+import { BootstrapVue, IconsPlugin } from 'bootstrap-vue';
+// eslint-disable-next-line import/first, import/no-unresolved
+import 'bootstrap/dist/css/bootstrap.css';
+// eslint-disable-next-line import/first, import/no-unresolved
+import 'bootstrap-vue/dist/bootstrap-vue.css';
+// eslint-disable-next-line import/first, import/no-unresolved
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
 Vue.config.productionTip = false;
-
-/* eslint-disable no-new */
+Vue.use(BootstrapVue);
+Vue.use(IconsPlugin);
+Vue.component('font-awesome-icon', FontAwesomeIcon);
 new Vue({
-  el: "#app",
-  components: { App },
-  template: "<App/>"
-});
+  render: h => h(App),
+}).$mount('#app');
+

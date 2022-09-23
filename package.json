@@ -13,9 +13,13 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.2.0",
+    "@fortawesome/vue-fontawesome": "^2.0.8",
+    "bootstrap": "^5.2.1",
+    "bootstrap-vue": "^2.22.0",
     "eagle.js": "0.4.1",
     "moment": "2.22.2",
-    "vue": "^2.5.2"
+    "vue": "^2.7.10"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
@@ -72,5 +76,9 @@
     "node": ">= 6.0.0",
     "npm": ">= 3.0.0"
   },
-  "browserslist": ["> 1%", "last 2 versions", "not ie <= 8"]
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+  ]
 }
